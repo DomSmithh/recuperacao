@@ -1,47 +1,38 @@
 import Title from './Title';
 import Button from './Button';
-import SayName from './SayName';
-import Perfil from './Perfil';
+import Noticia from './Noticia';
 import "./App.css"
-import Produto from './Produto';
 
-function App(){
-  const produtos = [
-    {
-      nome: "Start",
-      valor: "Free",
-      user: "1 User",
-      projeto: "1 Project",
-    },
-    {
-      nome: "Basic",
-      valor: "$ 19.99",
-      user: "5 User",
-      projeto: "20 Project",
-    },
-    {
-      nome: "Expert",
-      valor: "$129.99",
-      user: "Unlimited Users",
-      projeto: "Unlimited Projects",
-    },
-   
-  ];
-
-    return(
-      <div>
+function App() {
+    const lista_noticias = [
         {
-          produtos.map((produtos, i) => {
-            return <Produto key={i}
-                    nome={produtos.nome}
-                    valor={produtos.valor}
-                    user={produtos.user}
-                    projeto={produtos.projeto}
-                />;
-            })
-          }
+            hour: "28/05/2022 09:01",
+            description: "Estão abertas as inscrições para projetos de ensino"
+        },        
+        {
+            hour: "28/05/2022 09:00",
+            description: "Estão abertas as inscrições para projetos de pesquisa"
+        },
+        {
+            hour: "27/05/2022 13:32",
+            description: "Manutenção do Sistema SUAP acontece nesta sexta-feira(27)"
+        },
+    ];
+
+    return (
+        <div className='container'>
+            <Title />
+
+            {lista_noticias.map((noticia) => {
+                return <Noticia horario={noticia.hour} desc={noticia.description} />
+            })}
+
+            <Button frase="Mais Noticias" />
+            <div>Feliz Natal</div>
+
         </div>
-      );
+
+    );
 }
 
-export default App;
+export default App
